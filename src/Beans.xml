@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="assemblyVotingMachine" class="com.spring.practice.AssemblyVotingMachine" />
+	
+	<bean id="parliamentVotingMachine" class="com.spring.practice.ParliamentVotingMachine" />
+	
+	<bean id="votingMachineService" class="com.spring.practice.VotingMachineService">
+	    <property name="votingMachine">
+	        <ref local="parliamentVotingMachine"/>
+	    </property>
+	</bean>
+	
+	<bean id="user" class="com.spring.practice.User">
+		<property name="firstName" value="Amzad"/>
+		<property name="lastName" value="Basha"/>
+		<property name="profession" value="Software Engineer"/>
+		<property name="contactNo" value="9391001339"/>
+	</bean>
+	
+	<bean id="user1" class="com.spring.practice.User">
+		<constructor-arg value="Software Engineer"/>
+		<constructor-arg value="Amzad"/>
+		<constructor-arg value="Basha"/>		
+		<constructor-arg value="9391001339"/>
+	</bean>
+	
+</beans>
